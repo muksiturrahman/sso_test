@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SSO_test</string>
+    <string name="facebook_app_id">1029961948354624</string>
+    <string name="facebook_client_token">4987d5a70aa85e21a900c6fe1ecd07ed</string>
+</resources>

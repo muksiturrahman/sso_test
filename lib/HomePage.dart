@@ -10,24 +10,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   actions: [
-      //     FloatingActionButton(onPressed: () async{
-      //       await GoogleSignInApi.logOut();
-      //       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignInPage()));
-      //     },
-      //       child: Text('LogOut'),
-      //     ),
-      //   ],
-      // ),
+      appBar: AppBar(
+        title: Text('Google SignedIn',style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            user.photoUrl != null ?
             CircleAvatar(
-              radius: 40,
+              radius: 50,
               backgroundImage: NetworkImage(user.photoUrl!),
+            ) : CircleAvatar(
+              radius: 50,
+              child: Icon(Icons.person,size: 80,),
             ),
             SizedBox(height: 8,),
             Text('Name: ' + user.displayName!,style: TextStyle(color: Colors.black,fontSize: 15),),
