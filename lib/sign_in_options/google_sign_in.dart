@@ -3,15 +3,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sso_test/SigninPage.dart';
 import 'package:sso_test/api/google_signin_api.dart';
 
-class HomePage extends StatelessWidget {
+class GoogleSignIn extends StatelessWidget {
   final GoogleSignInAccount user;
-  HomePage({super.key, required this.user});
+  const GoogleSignIn({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google SignedIn',style: TextStyle(color: Colors.white),),
+        title: const Text('Google SignedIn',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Colors.green,
         automaticallyImplyLeading: false,
@@ -24,21 +24,21 @@ class HomePage extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundImage: NetworkImage(user.photoUrl!),
-            ) : CircleAvatar(
+            ) : const CircleAvatar(
               radius: 50,
               child: Icon(Icons.person,size: 80,),
             ),
-            SizedBox(height: 8,),
-            Text('Name: ' + user.displayName!,style: TextStyle(color: Colors.black,fontSize: 15),),
-            SizedBox(height: 8,),
-            Text('Email: ' + user.email!, style: TextStyle(color: Colors.black, fontSize: 15),),
-            SizedBox(height: 8,),
+            const SizedBox(height: 8,),
+            Text('Name: ' + user.displayName!,style: const TextStyle(color: Colors.black,fontSize: 15),),
+            const SizedBox(height: 8,),
+            Text('Email: ' + user.email!, style: const TextStyle(color: Colors.black, fontSize: 15),),
+            const SizedBox(height: 8,),
             ElevatedButton(
               onPressed: () async{
                 await GoogleSignInApi.logOut();
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignInPage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SignInPage()));
               },
-              child: Text('LogOut'),
+              child: const Text('LogOut'),
             ),
           ],
         ),

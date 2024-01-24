@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
-import 'package:sso_test/FacebookSignedIn.dart';
-import 'package:sso_test/HomePage.dart';
+import 'package:sso_test/sign_in_options/FacebookSignedIn.dart';
+import 'package:sso_test/sign_in_options/google_sign_in.dart';
+import 'package:sso_test/sign_in_options/x_login.dart';
 
 import 'api/google_signin_api.dart';
 
@@ -20,7 +21,7 @@ class _SignInPageState extends State<SignInPage> {
     if (user == null) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content : Text('Sign in Failed')));
     }else{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage(user: user)));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> GoogleSignIn(user: user)));
     }
   }
 
@@ -67,6 +68,14 @@ class _SignInPageState extends State<SignInPage> {
               },
               icon: Icon(Icons.facebook),
               label: Text('Sign In with Facebook'),
+            ),
+            SizedBox(height: 16.0),
+            OutlinedButton.icon(
+              onPressed: () {
+                
+              },
+              icon: Image.asset("assets/icons/x.png",height: 20,),
+              label: Text('Sign In with Twitter'),
             ),
           ],
         ),
